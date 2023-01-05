@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import "../firebase";
 import {
+  
   getAuth,
   signOut,
   createUserWithEmailAndPassword,
@@ -29,14 +30,22 @@ export function AuthProvider({ children }) {
   },[]);
 
   // signup function
-  async function signup(email, password, username) {
+  async function signup(email, password, username, photoURL) {
     const auth = getAuth();
+    const auth2 = getAuth();
     await createUserWithEmailAndPassword(auth, email, password);
 
+    
     // update Profile
     await updateProfile(auth.currentUser, {
       displayName: username,
+
     });
+    await updateProfile(auth2.currentUser, {
+      photoURL: photoURL,
+
+    });
+    
 
     const user = auth.currentUser;
     setCurrentUser({
@@ -68,4 +77,5 @@ export function AuthProvider({ children }) {
       {!loading && children}
     </AuthContext.Provider>
   );
-}
+};
+
