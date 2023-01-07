@@ -1,3 +1,4 @@
+import swal from 'sweetalert';
 import React, { useState } from "react";
 import Form from "./Form";
 import TextInput from "../Components/TextInput";
@@ -19,6 +20,7 @@ export default function LoginForm() {
       setError("");
       setLoading(true);
       await login(email, password);
+      swal("Welcome!", "Successfully login in your Account", "success");
       navigate("/");
     } catch (error) {
       console.log(error);

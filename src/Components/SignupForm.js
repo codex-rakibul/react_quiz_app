@@ -32,7 +32,7 @@ export default function SignupForm() {
       setError("");
       setLoading(true);
       
-      await signup(email, password, username, photoURL);
+      await signup(email, password, username,photoURL);
       history("/");
     } catch (err) {
       console.log(err);
