@@ -1,28 +1,22 @@
-import swal from 'sweetalert';
+import swal from "sweetalert";
 import React from "react";
 import style from "../.././styles/Account.module.css";
 import { Link } from "react-router-dom";
 import { useAuth } from "../.././Contexts/AuthContext";
-//http://drive.google.com/uc?export=view&id=setID
+//http://drive.google.com/uc?export=view&id=1xLa6K6xZxuocybe0uxO3N3NULkMy1R2Z
 export default function Account() {
   const { currentUser, logout } = useAuth();
   //const [imageLoad, setImageLoad] = useState(false);
 
-  
   return (
     <div className={style.account}>
       {currentUser ? (
         <>
           <span
-            style={{ fontSize: "1.5rem", fontWeight: "500", color: "#002333" }}
-          >
-            {currentUser.displayName}
-          </span>
-          <span
             className="material-icons-outlined"
             title="Logout"
             style={{ color: "red" }}
-            onClick={()=>{
+            onClick={() => {
               swal("Safely log out");
               logout();
             }}
@@ -43,7 +37,7 @@ export default function Account() {
               fontWeight: "bold",
               backgroundColor: "#002333",
               color: "white",
-              borderRadius:".5rem"
+              borderRadius: ".5rem",
             }}
           >
             Signup
@@ -58,8 +52,7 @@ export default function Account() {
               fontWeight: "bold",
               backgroundColor: "#002333",
               color: "white",
-              borderRadius:".5rem"
-              
+              borderRadius: ".5rem",
             }}
           >
             Login

@@ -9,24 +9,35 @@ export default function Nav() {
   return (
     <nav className={style.nav}>
       {currentUser ? (
-        <ul>
-          <li>
-            <Link to="/" className={style.brand}>
-              <img
-                title={currentUser.displayName}
-                src={currentUser.photoURL}
-                alt={currentUser.displayName}
-                style={{
-                  height: "3rem",
-                  width: "3rem",
-                  borderRadius: "100%",
-                  border: "2px solid #002333",
-                  outline: "none",
-                }}
-              />
-            </Link>
-          </li>
-        </ul>
+        <>
+          <ul>
+            <li>
+              <Link to="/" className={style.brand}>
+                <img
+                  title={currentUser.displayName}
+                  src={currentUser.photoURL}
+                  alt={currentUser.displayName}
+                  style={{
+                    height: "3rem",
+                    width: "3rem",
+                    borderRadius: "100%",
+                    border: "2px solid #002333",
+                    outline: "none",
+                  }}
+                />
+                <span
+                  style={{
+                    fontSize: "1.5rem",
+                    fontWeight: "500",
+                    color: "#002333",
+                  }}
+                >
+                  {currentUser.displayName}
+                </span>
+              </Link>
+            </li>
+          </ul>
+        </>
       ) : (
         <ul>
           <li>
